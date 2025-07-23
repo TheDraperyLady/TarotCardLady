@@ -13,6 +13,7 @@ All absolute paths have been converted to relative paths:
 - `href="/wp-content/themes/..."` → `href="wp-content/themes/..."`
 - `src="/wp-includes/js/..."` → `src="wp-includes/js/..."`
 - `href="/wp-content/uploads/..."` → `href="wp-content/uploads/..."`
+- `srcset="/wp-content/uploads/..."` → `srcset="wp-content/uploads/..."`
 - `href="/"` → `href="./"`
 
 ## Deployment
