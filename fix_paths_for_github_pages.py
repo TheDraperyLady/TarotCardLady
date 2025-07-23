@@ -16,29 +16,29 @@ def fix_html_paths():
     with open('index.html', 'r', encoding='utf-8') as f:
         content = f.read()
     
-    # Fix various path patterns
+    # Fix various path patterns - remove the ./ prefix for GitHub Pages
     replacements = [
-        # Fix CSS and JS file paths
-        (r'href="wp-content/', 'href="./wp-content/'),
-        (r'src="wp-content/', 'src="./wp-content/'),
-        (r'href="wp-includes/', 'href="./wp-includes/'),
-        (r'src="wp-includes/', 'src="./wp-includes/'),
+        # Fix CSS and JS file paths - remove ./ prefix
+        (r'href="./wp-content/', 'href="wp-content/'),
+        (r'src="./wp-content/', 'src="wp-content/'),
+        (r'href="./wp-includes/', 'href="wp-includes/'),
+        (r'src="./wp-includes/', 'src="wp-includes/'),
         
-        # Fix image paths that start with /
-        (r'src="/wp-content/', 'src="./wp-content/'),
-        (r'href="/wp-content/', 'href="./wp-content/'),
-        (r'src="/wp-includes/', 'src="./wp-includes/'),
-        (r'href="/wp-includes/', 'href="./wp-includes/'),
+        # Fix absolute paths to relative paths
+        (r'href="/wp-content/', 'href="wp-content/'),
+        (r'src="/wp-content/', 'src="wp-content/'),
+        (r'href="/wp-includes/', 'href="wp-includes/'),
+        (r'src="/wp-includes/', 'src="wp-includes/'),
         
         # Fix any remaining absolute paths
-        (r'src="/', 'src="./'),
-        (r'href="/', 'href="./'),
+        (r'src="/', 'src="'),
+        (r'href="/', 'href="'),
         
         # Fix WordPress-specific paths
-        (r'href="wp-json/', 'href="./wp-json/'),
-        (r'href="xmlrpc.php', 'href="./xmlrpc.php'),
-        (r'href="feed/', 'href="./feed/'),
-        (r'href="comments/feed/', 'href="./comments/feed/'),
+        (r'href="wp-json/', 'href="wp-json/'),
+        (r'href="xmlrpc.php', 'href="xmlrpc.php'),
+        (r'href="feed/', 'href="feed/'),
+        (r'href="comments/feed/', 'href="comments/feed/'),
         
         # Fix form action URLs (keep external URLs as they are)
         (r'action="https://formspree.io/f/meozavby"', 'action="https://formspree.io/f/meozavby"'),  # Keep external URLs
@@ -47,6 +47,14 @@ def fix_html_paths():
     # Apply all replacements
     for pattern, replacement in replacements:
         content = re.sub(pattern, replacement, content)
+    
+    # Fix srcset attributes specifically
+    # This handles srcset="wp-content/uploads/... 300w, wp-content/uploads/... 600w" format
+    content = re.sub(r'srcset="\./wp-content/', 'srcset="wp-content/', content)
+    content = re.sub(r'srcset="/wp-content/', 'srcset="wp-content/', content)
+    
+    # Fix any remaining absolute paths within srcset attributes
+    content = re.sub(r', /wp-content/', ', wp-content/', content)
     
     # Write the fixed content back
     with open('index.html', 'w', encoding='utf-8') as f:
@@ -65,10 +73,15 @@ def fix_css_font_paths():
             
             original_content = content
             
-            # Fix font URLs in CSS files
-            content = re.sub(r'url\(\'/wp-content/', 'url(\'./wp-content/', content)
-            content = re.sub(r'url\(\"/wp-content/', 'url(\"./wp-content/', content)
-            content = re.sub(r'url\(/wp-content/', 'url(./wp-content/', content)
+            # Fix font URLs in CSS files - remove ./ prefix
+            content = re.sub(r'url\(\'\./wp-content/', 'url(\'wp-content/', content)
+            content = re.sub(r'url\(\"\./wp-content/', 'url(\"wp-content/', content)
+            content = re.sub(r'url\(\./wp-content/', 'url(wp-content/', content)
+            
+            # Also fix any remaining absolute paths
+            content = re.sub(r'url\(\'/wp-content/', 'url(\'wp-content/', content)
+            content = re.sub(r'url\(\"/wp-content/', 'url(\"wp-content/', content)
+            content = re.sub(r'url\(/wp-content/', 'url(wp-content/', content)
             
             # Only write if content changed
             if content != original_content:
@@ -137,11 +150,10 @@ def verify_file_structure():
     missing_files = []
     for src_path, href_path in file_paths:
         path = src_path or href_path
-        if path.startswith('./') and not path.startswith('http'):
-            # Remove the ./ prefix for file checking
-            file_path = path[2:] if path.startswith('./') else path
-            if not os.path.exists(file_path):
-                missing_files.append(file_path)
+        if not path.startswith('http') and not path.startswith('//'):
+            # Check if file exists
+            if not os.path.exists(path):
+                missing_files.append(path)
     
     if missing_files:
         print("❌ Missing files:")

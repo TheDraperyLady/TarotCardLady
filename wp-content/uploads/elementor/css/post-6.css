@@ -3,7 +3,7 @@
 	font-style: normal;
 	font-weight: normal;
 	font-display: auto;
-	src: url('./wp-content/uploads/2025/05/Britannic-Bold-Regular.woff2') format('woff2');
+	src: url('wp-content/uploads/2025/05/Britannic-Bold-Regular.woff2') format('woff2');
 }
 /* End Custom Fonts CSS */
 /* Start Custom Fonts CSS */@font-face {
@@ -11,27 +11,27 @@
 	font-style: normal;
 	font-weight: 300;
 	font-display: auto;
-	src: url('./wp-content/uploads/2025/05/Gilroy-Light.woff2') format('woff2');
+	src: url('wp-content/uploads/2025/05/Gilroy-Light.woff2') format('woff2');
 }
 @font-face {
 	font-family: 'Gilroy';
 	font-style: normal;
 	font-weight: 400;
 	font-display: auto;
-	src: url('./wp-content/uploads/2025/05/Gilroy-Regular.woff2') format('woff2');
+	src: url('wp-content/uploads/2025/05/Gilroy-Regular.woff2') format('woff2');
 }
 @font-face {
 	font-family: 'Gilroy';
 	font-style: normal;
 	font-weight: 500;
 	font-display: auto;
-	src: url('./wp-content/uploads/2025/05/Gilroy-Medium.woff2') format('woff2');
+	src: url('wp-content/uploads/2025/05/Gilroy-Medium.woff2') format('woff2');
 }
 @font-face {
 	font-family: 'Gilroy';
 	font-style: normal;
 	font-weight: 700;
 	font-display: auto;
-	src: url('./wp-content/uploads/2025/05/Gilroy-Bold.woff2') format('woff2');
+	src: url('wp-content/uploads/2025/05/Gilroy-Bold.woff2') format('woff2');
 }
 /* End Custom Fonts CSS */
