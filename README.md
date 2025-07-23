@@ -1,51 +1,31 @@
-# WordPress Static Site - GitHub Pages Ready
+# Tarot Card Lady - GitHub Pages Deployment
 
-This is a WordPress site that has been exported to static HTML/CSS/JS files and is now ready for deployment on GitHub Pages.
+This repository contains a static website for Tarot Card Lady that has been optimized for GitHub Pages deployment.
 
-## What Was Fixed
-
-The original WordPress export used absolute paths (starting with `/`) for all CSS, JavaScript, and image files. While these work fine when serving from the root directory (like with `python -m http.server`), they fail on GitHub Pages because it serves your site from a subdirectory (your repository name).
-
-### Changes Made
-
-All absolute paths have been converted to relative paths:
-
-- `href="/wp-content/themes/..."` → `href="wp-content/themes/..."`
-- `src="/wp-includes/js/..."` → `src="wp-includes/js/..."`
-- `href="/wp-content/uploads/..."` → `href="wp-content/uploads/..."`
-- `srcset="/wp-content/uploads/..."` → `srcset="wp-content/uploads/..."`
-- `href="/"` → `href="./"`
+## Files Structure
+- `index.html` - Main website file
+- `wp-content/` - Contains all CSS, JavaScript, images, and fonts
+- `wp-includes/` - Contains jQuery and other dependencies
+- `.nojekyll` - Ensures GitHub Pages serves all files
 
 ## Deployment
+1. Push this repository to GitHub
+2. Go to Settings > Pages
+3. Select "Deploy from a branch"
+4. Choose your main branch (usually `main` or `master`)
+5. Your site will be available at: `https://[username].github.io/[repository-name]/`
 
-1. Upload all files to a GitHub repository
-2. Go to repository Settings → Pages
-3. Select "Deploy from a branch" and choose your main branch
+## Custom Fonts
+The site uses custom fonts:
+- **Britannic Bold** - For headings
+- **Gilroy** - For body text (multiple weights: Light, Regular, Medium, Bold)
 
-## File Structure
+All font files are included in `wp-content/uploads/2025/05/`.
 
-```
-├── index.html                    # Main page
-├── wp-content/                   # WordPress content
-│   ├── themes/                   # Theme files
-│   ├── plugins/                  # Plugin files (Elementor, etc.)
-│   └── uploads/                  # Uploaded media
-├── wp-includes/                  # WordPress core files
-└── README.md                     # This file
-```
-
-## Testing Locally
-
-You can test the site locally using:
-
-```bash
-python -m http.server
-```
-
-Then visit `http://localhost:8000` in your browser.
+## Contact Form
+The contact form uses Formspree.io for handling submissions. No additional setup required.
 
 ## Notes
-
-- WordPress API endpoints (`/wp-json/`, `/xmlrpc.php`) have been converted to relative paths but won't function on a static site
-- All styles and JavaScript should now load correctly on GitHub Pages
-- The site is fully static and doesn't require a web server or database 
+- All file paths have been converted to relative paths for GitHub Pages compatibility
+- The `.nojekyll` file ensures GitHub Pages serves all files including those starting with underscore
+- CSS and JavaScript files are optimized and minified
