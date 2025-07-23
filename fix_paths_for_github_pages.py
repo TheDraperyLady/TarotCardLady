@@ -65,6 +65,7 @@ def fix_html_paths():
 def fix_css_font_paths():
     """Fix font paths in CSS files."""
     css_files = glob.glob('wp-content/**/*.css', recursive=True)
+    css_files.append('custom-fonts.css')  # Add our custom font file
     
     for css_file in css_files:
         try:

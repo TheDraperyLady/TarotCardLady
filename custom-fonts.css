@@ -1,0 +1,73 @@
+/* Custom Font Fixes for GitHub Pages */
+
+/* Ensure fonts are loaded with proper fallbacks */
+@font-face {
+    font-family: "Britannic Bold";
+    font-style: normal;
+    font-weight: normal;
+    font-display: swap;
+    src: url('wp-content/uploads/2025/05/Britannic-Bold-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: "Gilroy";
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url('wp-content/uploads/2025/05/Gilroy-Light.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: "Gilroy";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('wp-content/uploads/2025/05/Gilroy-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: "Gilroy";
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('wp-content/uploads/2025/05/Gilroy-Medium.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: "Gilroy";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('wp-content/uploads/2025/05/Gilroy-Bold.woff2') format('woff2');
+}
+
+/* Force font application for headings */
+.elementor-heading-title,
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Britannic Bold", "Times New Roman", serif !important;
+}
+
+/* Force font application for body text */
+body,
+p,
+.elementor-text-editor,
+.elementor-widget-text-editor {
+    font-family: "Gilroy", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+/* Force font application for buttons */
+.elementor-button,
+button,
+input[type="button"],
+input[type="submit"] {
+    font-family: "Gilroy", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+/* Ensure CSS custom properties work correctly */
+:root {
+    --e-global-typography-primary-font-family: "Britannic Bold";
+    --e-global-typography-secondary-font-family: "Gilroy";
+    --e-global-typography-text-font-family: "Gilroy";
+    --e-global-typography-accent-font-family: "Gilroy";
+    --e-global-typography-78d0fea-font-family: "Gilroy";
+} 
