@@ -16,7 +16,7 @@ The site uses custom fonts:
 All font files are included in `wp-content/uploads/2025/05/`.
 
 ## Contact Form
-The contact form uses Formspree.io for handling submissions. No additional setup required.
+The contact form uses Formkeep for handling submissions.
 
 ## Notes
 - All file paths have been converted to relative paths for GitHub Pages compatibility
