@@ -8,13 +8,6 @@ This repository contains a static website for Tarot Card Lady that has been opti
 - `wp-includes/` - Contains jQuery and other dependencies
 - `.nojekyll` - Ensures GitHub Pages serves all files
 
-## Deployment
-1. Push this repository to GitHub
-2. Go to Settings > Pages
-3. Select "Deploy from a branch"
-4. Choose your main branch (usually `main` or `master`)
-5. Your site will be available at: `https://[username].github.io/[repository-name]/`
-
 ## Custom Fonts
 The site uses custom fonts:
 - **Britannic Bold** - For headings
