@@ -621,7 +621,7 @@ Card Lady</h2>				</div>
 			<div class="elementor-widget-wrap elementor-element-populated">
 						<div class="elementor-element elementor-element-d7ee341 elementor-widget elementor-widget-html" data-id="d7ee341" data-element_type="widget" data-widget_type="html.default">
 				<div class="elementor-widget-container">
-					<form action="https://formkeep.com/f/be6951375708"
+					<form action="https://forms.tanuj.xyz/tarotcardlady/submit"
    accept-charset="UTF-8"
    enctype="multipart/form-data"
    method="POST">
@@ -650,6 +650,15 @@ Card Lady</h2>				</div>
     ></textarea>
     <p class="form-description">What would you like to discuss?</p>
   </div>
+  
+  <!-- Honeypot field - hidden from users -->
+  <input type="text" name="_hp" class="honeypot" tabindex="-1" autocomplete="off">
+  
+  <!-- Form identifier -->
+  <input type="hidden" name="_form" value="simple-test">
+  
+  <!-- Redirect URL after successful submission -->
+  <input type="hidden" name="_redirect" value="thank-you.html">
   
   <div class="form-button-group">
     <button class="form-button" type="submit">Submit</button>
@@ -799,6 +808,14 @@ Card Lady</h2>				</div>
 .form-input.success,
 .form-textarea.success {
   border-color: #28a745;
+}
+
+/* Honeypot field - hidden from users */
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Accessibility */
