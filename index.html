@@ -784,7 +784,8 @@ Card Lady</h2>				</div>
 					<form action="https://forms.tanuj.xyz/tarotcardlady/submit"
    accept-charset="UTF-8"
    enctype="multipart/form-data"
-   method="POST">
+   method="POST"
+   id="contact-form">
    
   <div class="form-field">
     <label class="form-label" for="name">Your Name</label>
@@ -818,8 +819,10 @@ Card Lady</h2>				</div>
   <input type="hidden" name="_form" value="simple-test">
     
   <div class="form-button-group">
-    <button class="form-button" type="submit">Submit</button>
-  </div>
+	<button class="g-recaptcha form-button" 
+	data-sitekey="6LdBTdwrAAAAAK1aOzsb0-7SIx7wD-iOcGCcXQtI" 
+	data-callback='onSubmit' 
+	data-action='submit'>Submit</button>  </div>
 </form>
 
 <style>
@@ -1039,6 +1042,11 @@ Card Lady</h2>				</div>
 		</section>
 				</div>
 		
+				<script>
+					function onSubmit(token) {
+					  document.getElementById("contact-form").submit();
+					}
+				  </script>
 <script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/hello-elementor\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
@@ -1087,6 +1095,7 @@ var ElementorProFrontendConfig = {"ajaxurl":"\/wp-admin\/admin-ajax.php","nonce"
 </script>
 <script src="wp-content/plugins/elementor-pro/assets/js/frontend.min.js?ver=3.29.0" id="elementor-pro-frontend-js"></script>
 <script src="wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.29.0" id="pro-elements-handlers-js"></script>
+<script src="https://www.google.com/recaptcha/api.js"></script>
 
 </body>
 </html>
