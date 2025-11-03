@@ -1,81 +1,101 @@
-# Tarot Card Lady - GitHub Pages Deployment
+# Tarot Card Lady - WordPress Website
 
-This repository contains a static website for Tarot Card Lady that has been optimized for GitHub Pages deployment.
+This repository contains the WordPress website for Tarot Card Lady, providing professional tarot reading services and spiritual guidance.
 
-## 🚀 Quick Start
+## 🌐 Live Site
 
-1. **Run the script**: `python fix_paths_for_github_pages.py [directory]`
-2. **Test locally**: Open `index.html` in browser
-3. **Upload to GitHub**: Push files to repository
-4. **Enable Pages**: Settings → Pages → Deploy from branch
+**Website**: [https://tarotcardlady.net/](https://tarotcardlady.net/)
 
-## 📁 File Structure
+## 📁 Project Structure
 
 ```
-your-site/
-├── index.html
+TarotCardLady/
+├── index.html                  # Main homepage
+├── robots.txt                  # SEO and crawler directives
+├── sitemap.xml                 # XML sitemap for search engines
+├── site.webmanifest           # PWA manifest
 ├── wp-content/
 │   ├── themes/
+│   │   └── hello-elementor/   # WordPress theme
 │   ├── plugins/
+│   │   ├── elementor/         # Page builder
+│   │   └── elementor-pro/     # Page builder pro
 │   └── uploads/
-├── wp-includes/
-│   └── js/
-└── README.md
+│       └── 2025/05/           # Media assets (images, fonts)
+└── wp-includes/
+    └── js/                    # WordPress core JavaScript
 ```
 
-### Key Files
-- `index.html` - Main website file
-- `wp-content/` - Contains all CSS, JavaScript, images, and fonts
-- `wp-includes/` - Contains jQuery and other dependencies
-- `.nojekyll` - Ensures GitHub Pages serves all files
+## ✨ Features
 
-## 🔧 Path Conversions
+- **Custom Tarot Readings**: Various reading sessions including:
+  - Spiritual Guidance Sessions
+  - Life Path Readings
+  - Relationship Insights
+  - Career & Purpose Readings
+  
+- **Additional Services**:
+  - House Blessings
+  - Funeral Services & Memorial Ceremonies
+  - Spiritual Counseling
 
-| Find | Replace |
-|------|---------|
-| `href="/wp-content/` | `href="wp-content/` |
-| `src="/wp-includes/` | `src="wp-includes/` |
-| `src="/wp-content/uploads/` | `src="wp-content/uploads/` |
-| `href="/wp-content/uploads/` | `href="wp-content/uploads/` |
-| `content="/wp-content/uploads/` | `content="wp-content/uploads/` |
-| `href="/wp-json/` | `href="wp-json/` |
-| `href="/"` | `href="./"` |
+- **Modern Design**: Built with Elementor page builder for a beautiful, responsive experience
 
-## 🎨 Custom Fonts
+## 🎨 Design Elements
 
-The site uses custom fonts:
-- **Britannic Bold** - For headings
-- **Gilroy** - For body text (multiple weights: Light, Regular, Medium, Bold)
+### Custom Fonts
+- **Britannic Bold** - Used for headings and titles
+- **Gilroy** (Light, Regular, Medium, Bold) - Used for body text and UI elements
 
-All font files are included in `wp-content/uploads/2025/05/`.
+All custom font files are located in `wp-content/uploads/2025/05/`
 
-## 📝 Contact Form
+### Brand Colors
+- **Primary**: `#CC3366` (Deep Pink)
+- **Background**: `#1a0b2e` (Dark Purple)
+- **Accent**: Various mystical purples and golds
 
-The contact form uses Formkeep for handling submissions.
+## 🛠️ Technology Stack
 
-## ✅ Testing Checklist
+- **CMS**: WordPress 6.8.3
+- **Theme**: Hello Elementor 3.4.3
+- **Page Builder**: Elementor 3.30.2 & Elementor Pro 3.29.0
+- **JavaScript**: jQuery with WordPress core libraries
+- **CSS**: Custom CSS with Elementor styles
 
-- [ ] Homepage loads
-- [ ] CSS styles work
-- [ ] JavaScript functions
-- [ ] Images display
-- [ ] Navigation works
-- [ ] Mobile responsive
-- [ ] Favicon shows
+## 📝 Contact & Booking
 
-## 🐛 Common Issues
+The site includes an integrated contact form for booking sessions and inquiries. Visitors can:
+- Request tarot reading sessions
+- Book house blessing ceremonies
+- Inquire about spiritual guidance services
+- Schedule consultations
 
-**Images not loading**: Check `src` paths  
-**CSS not working**: Check `href` paths  
-**JS errors**: Check `src` paths  
-**Links broken**: Check `href="/"` → `href="./"`
+## 🔍 SEO & Discovery
 
-## 🔗 Your Site URL
+- **Sitemap**: `sitemap.xml` for search engine indexing
+- **Robots.txt**: Configured to allow search engine crawling of public content
+- **Meta Tags**: Optimized for search engines and social media sharing
+- **PWA Support**: Progressive Web App manifest for mobile installation
 
-`https://[username].github.io/[repository-name]/`
+## 📱 Mobile Support
+
+The site is fully responsive and includes:
+- PWA manifest for mobile app-like experience
+- Optimized images (WebP format)
+- Touch-friendly navigation
+- Responsive Elementor layouts
+
+## 🎯 About Minister Christine
+
+With over 40 years of experience in tarot reading and spiritual guidance, Minister Christine (Tarot Card Lady) provides:
+- Professional tarot card readings
+- Spiritual counseling and guidance
+- Life path insights
+- Ceremonial services (blessings, memorials)
 
 ## 📋 Notes
 
-- All file paths have been converted to relative paths for GitHub Pages compatibility
-- The `.nojekyll` file ensures GitHub Pages serves all files including those starting with underscore
-- CSS and JavaScript files are optimized and minified
+- All WordPress assets are included in `wp-content/` and `wp-includes/`
+- Images are optimized using WebP format for faster loading
+- CSS and JavaScript files are minified for performance
+- The site uses Elementor for visual page building and design

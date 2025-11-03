@@ -6,7 +6,7 @@
   <!-- Homepage -->
   <url>
     <loc>https://tarotcardlady.net/</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -16,24 +16,17 @@
     </image:image>
   </url>
   
-  <!-- Thank You Page (not indexed but included for completeness) -->
-  <url>
-    <loc>https://tarotcardlady.net/thank-you</loc>
-    <lastmod>2025-01-27</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
   <!-- Image URLs for better indexing -->
   <url>
     <loc>https://tarotcardlady.net/wp-content/uploads/2025/05/Card-reading-img.webp</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://tarotcardlady.net/wp-content/uploads/2025/05/Christine-St.-Clair3.webp</loc>
-    <lastmod>2025-01-27</lastmod>
+    <lastmod>2025-11-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>

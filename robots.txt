@@ -9,13 +9,12 @@ Disallow: /wp-admin/
 Disallow: /wp-includes/
 Disallow: /wp-content/plugins/
 Disallow: /wp-content/themes/
-Disallow: /wp-content/uploads/elementor/css/
+Disallow: /wp-content/uploads/elementor/
 Disallow: /wp-json/
 Disallow: /xmlrpc.php
 
-# Allow important files
-Allow: /wp-content/uploads/
-Allow: /wp-content/uploads/2025/05/
+# Allow public content
+Allow: /wp-content/uploads/2025/
 
-# Crawl delay (optional)
+# Crawl delay
 Crawl-delay: 1
