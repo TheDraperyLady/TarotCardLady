@@ -565,7 +565,6 @@
 			}
 
 			form.addEventListener('submit', function (event) {
-				event.preventDefault();
 				setBanner('', '');
 				clearFieldErrors(form);
 
@@ -585,51 +584,18 @@
 					}
 				}
 
-				var params = new URLSearchParams();
-				var fd = new FormData(form);
-				fd.forEach(function (val, key) {
-					if (typeof val === 'string') {
-						params.append(key, val);
-					}
-				});
+				// Ensure cf-turnstile-response is present as a hidden field
 				if (turnstileToken) {
-					params.append('cf-turnstile-response', turnstileToken);
+					var tokenField = form.querySelector('input[name="cf-turnstile-response"]');
+					if (!tokenField) {
+						tokenField = document.createElement('input');
+						tokenField.type = 'hidden';
+						tokenField.name = 'cf-turnstile-response';
+						form.appendChild(tokenField);
+					}
+					tokenField.value = turnstileToken;
 				}
-
-				submitBtn.disabled = true;
-
-				fetch(FORM_ACTION, {
-					method: 'POST',
-					headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-					body: params.toString(),
-					redirect: 'manual'
-				})
-					.then(function (res) {
-						if (res.status >= 400) throw new Error('HTTP ' + res.status);
-						var success =
-							res.type === 'opaqueredirect' ||
-							res.ok ||
-							res.status === 301 ||
-							res.status === 302 ||
-							res.status === 303 ||
-							res.status === 307 ||
-							res.status === 308;
-						if (!success) throw new Error('HTTP ' + res.status);
-						form.reset();
-						clearFieldErrors(form);
-						turnstileToken = '';
-						if (window.turnstile && typeof widgetId !== 'undefined') {
-							window.turnstile.reset(widgetId);
-						}
-						setBanner('ok', 'Thank you—your message was sent.');
-					})
-					.catch(function (err) {
-						console.error(err);
-						setBanner('error', 'We could not send your request. Please try again or call 408-912-0863.');
-					})
-					.finally(function () {
-						submitBtn.disabled = false;
-					});
+				// Let the browser submit the form normally (full-page POST)
 			});
 		});
 	})();
